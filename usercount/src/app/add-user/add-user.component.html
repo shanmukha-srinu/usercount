@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-xs-12">
+      <p>Add new user</p>
+      <label>First Name</label>
+      <!--<input type="text" class="form-control" [(ngModel)]="newServerName">-->
+      <input
+        type="text"
+        class="form-control"
+        #Userfirstname
+        >
+      <label>Last name</label>
+      <!--<input type="text" class="form-control" [(ngModel)]="newServerContent">-->
+      <input
+        type="text"
+        class="form-control"
+        #Userlastname
+        >
+      <br>
+      <button
+        class="btn btn-primary"
+        (click)="on_add_user()"
+        >Add User</button>
+    </div>
+  </div>
+  

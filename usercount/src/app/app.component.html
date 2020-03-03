@@ -1,0 +1,22 @@
+<h1 >No of users:{{no_of_users}}</h1>
+<div class="container">
+  <app-add-user (usercreated)="on_user_added($event)">
+
+  </app-add-user>
+  <div class="row">
+      <div class="col-xs-12">
+        <app-user-list *ngFor="let userelement of userelements;" [element]="userelement" (removeuser)="on_remove_user($event)" >
+
+      
+      
+        </app-user-list>
+      
+      </div>
+  </div>
+
+
+
+
+
+
+</div>
