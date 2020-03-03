@@ -18,6 +18,7 @@ export class AppComponent {
     this.no_of_users=this.no_of_users+1;
   }
   on_remove_user(del_data:{firstname:string,lastname:string}){
+    console.log(del_data)
     console.log("needtodelelements:"+del_data.firstname)
     for(var i=0;i<this.userelements.length;i++)
     {
@@ -26,7 +27,7 @@ export class AppComponent {
         this.userelements.splice(i,1);
       }
     }
-    this.no_of_users=this.no_of_users+1;
+    this.no_of_users=this.no_of_users-1;
     console.log("after delete"+this.userelements)
   }
 }

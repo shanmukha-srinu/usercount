@@ -1,4 +1,4 @@
-import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Input, Output,EventEmitter,ViewChild,ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-user-list',
@@ -8,26 +8,32 @@ import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 export class UserListComponent implements OnInit {
   focus=false;
   @Input() element:{firstname:string,lastname:string};
-  @Output() deleteuser;
+  @Output() deleteuser=new EventEmitter<{firstname:string,lastname:string}>();;
   del_firstname='';
   del_lastname='';
-  
+  @ViewChild('temp', { static: false }) temp: ElementRef;
   constructor() { }
-  removeuser(deleteuser){
-    console.log(this.deleteuser)
+  removeuser(deleteuser,firstname,lastname){
+    console.log("reached to removeuser. element are :"+ firstname+" "+lastname)
+    var temp1;
+    var temp2;
+
+    temp1=firstname;
+    temp2=lastname;
+    console.log(temp1+temp2)
     deleteuser.emit(
       {
-        firstname:this.del_firstname,
-        lastname:this.del_lastname
+        'firstname': temp1,
+        'lastname':temp2
       }
-    )
+      
+    );
   
   }
   delete_ele(firstname,lastname){
-    console.log("ele to be deleted "+firstname+" "+lastname)
-    this.deleteuser=new EventEmitter<{firstname:string,lastname:string}>();
-    console.log()
-    this.removeuser(this.deleteuser);
+    console.log("ele to be deleted "+firstname+" "+lastname+ " in delete_ele")
+    
+    this.removeuser(this.deleteuser,firstname,lastname);
 }
 
   ngOnInit(): void {

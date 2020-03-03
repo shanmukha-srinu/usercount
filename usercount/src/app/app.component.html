@@ -1,14 +1,15 @@
-<h1 >No of users:{{no_of_users}}</h1>
+<p>No of users:<span [ngStyle]="{color: no_of_users==0?'red':'green'}">{{no_of_users}}</span></p>
 <div class="container">
   <app-add-user (usercreated)="on_user_added($event)">
 
   </app-add-user>
   <div class="row">
       <div class="col-xs-12">
-        <app-user-list *ngFor="let userelement of userelements;" [element]="userelement" (removeuser)="on_remove_user($event)" >
-
-      
-      
+        <app-user-list 
+        *ngFor="let userelement of userelements;let i = index"
+        [ngStyle]="{color: (i+1) % 2==0?'red':'green'}"
+         [element]="userelement"
+          (deleteuser)="on_remove_user($event)" >
         </app-user-list>
       
       </div>

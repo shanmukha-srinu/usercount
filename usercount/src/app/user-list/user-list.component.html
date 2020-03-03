@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <div class="list">
         {{element.firstname}} {{element.lastname}}
-        <button (click)="delete_ele(element.firstname,element.lastname)">delete</button>    
+        <button #temp (click)="delete_ele(element.firstname,element.lastname)">delete</button>    
     </div>
     
  
